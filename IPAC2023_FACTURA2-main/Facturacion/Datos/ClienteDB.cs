@@ -10,7 +10,6 @@ namespace Datos
     {
         string cadena = "server=localhost; user=root; database=facturaprueba; password=123456;";
         private string identidad;
-
         public bool Insertar(Cliente cliente)
         {
             bool inserto = false;
@@ -99,9 +98,59 @@ namespace Datos
 
             }
             return edito;
+        }
+        public bool Eliminar(string NIdentidad)
+        {
+            bool elimino = false;
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" DELETE FROM cliente ");
+                sql.Append(" WHERE Codigo = @NIdentidad; ");
+
+                using (MySqlConnection _conexion = new MySqlConnection(cadena))
+                {
+                    _conexion.Open();
+                    using (MySqlCommand comando = new MySqlCommand(sql.ToString(), _conexion))
+                    {
+                        comando.CommandType = CommandType.Text;
+                        comando.Parameters.Add("@NIdentidad", MySqlDbType.VarChar, 80).Value = NIdentidad;
+                        comando.ExecuteNonQuery();
+                        elimino = true;
+                    }
+                }
             }
+            catch (System.Exception ex)
+            {
+
+            }
+            return elimino;
+        }
+        public DataTable DevolverClientes()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" SELECT * FROM cliente ");
+                using (MySqlConnection _conexion = new MySqlConnection(cadena))
+                {
+                    _conexion.Open();
+                    using (MySqlCommand comando = new MySqlCommand(sql.ToString(), _conexion))
+                    {
+                        comando.CommandType = CommandType.Text;
+                        MySqlDataReader dr = comando.ExecuteReader();
+                        dt.Load(dr);
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+            }
+            return dt;
         }
     }
+}
 
 
            

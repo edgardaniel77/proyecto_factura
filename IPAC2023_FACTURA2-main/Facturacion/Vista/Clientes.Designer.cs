@@ -47,9 +47,9 @@
             this.EstaActivocheckBox = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.NIdentidadtextBox = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ClientesdataGridView = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientesdataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -223,13 +223,13 @@
             this.NIdentidadtextBox.Size = new System.Drawing.Size(310, 20);
             this.NIdentidadtextBox.TabIndex = 22;
             // 
-            // dataGridView1
+            // ClientesdataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 353);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(710, 111);
-            this.dataGridView1.TabIndex = 23;
+            this.ClientesdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ClientesdataGridView.Location = new System.Drawing.Point(12, 323);
+            this.ClientesdataGridView.Name = "ClientesdataGridView";
+            this.ClientesdataGridView.Size = new System.Drawing.Size(710, 111);
+            this.ClientesdataGridView.TabIndex = 23;
             // 
             // errorProvider1
             // 
@@ -240,7 +240,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 467);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.ClientesdataGridView);
             this.Controls.Add(this.NIdentidadtextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.EstaActivocheckBox);
@@ -262,7 +262,7 @@
             this.Name = "ClientesForm";
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.ClientesForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientesdataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -289,7 +289,7 @@
         private System.Windows.Forms.CheckBox EstaActivocheckBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox NIdentidadtextBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ClientesdataGridView;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

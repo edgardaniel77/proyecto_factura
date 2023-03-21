@@ -1,13 +1,8 @@
 ﻿using Datos;
 using Entidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vista
@@ -20,7 +15,6 @@ namespace Vista
         }
 
         string tipoOperacion;
-
         DataTable dt = new DataTable();
         ClienteDB ClienteDB = new ClienteDB();
         Cliente cliente = new Cliente();
@@ -129,7 +123,7 @@ namespace Vista
             {
                 LimpiarControles();
                 DeshabilitarControles();
-                TraerUsuarios();
+                TraerClientes();
                 MessageBox.Show("Registro Guardado");
             }
             else
@@ -140,31 +134,30 @@ namespace Vista
 
         private void ClientesForm_Load(object sender, EventArgs e)
         {
-            TraerUsuarios();
+            TraerClientes();
         }
-        private void TraerUsuarios()
+        private void TraerClientes()
         {
-            dt = ClienteDB.DevolverUsuarios();
-
-            ClienteDataGridView.DataSource = dt;
+          dt = ClienteDB.DevolverClientes();
+            ClientesdataGridView.DataSource= dt;
 
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
-            if (clienteDataGridView.SelectedRows.Count > 0)
+            if (ClientesdataGridView.SelectedRows.Count > 0)
             {
                 DialogResult resultado = MessageBox.Show("Esta seguro de eliminar el registro", "Advertencia", MessageBoxButtons.YesNo);
 
                 if (resultado == DialogResult.Yes)
                 {
-                    bool elimino = UsuarioDB.Eliminar(clienteDataGridView.CurrentRow.Cells["CodigoUsuario"].Value.ToString());
+                    bool elimino = ClienteDB.Eliminar(ClientesdataGridView.CurrentRow.Cells["NIdentidadCliente"].Value.ToString());
 
                     if (elimino)
                     {
                         LimpiarControles();
                         DeshabilitarControles();
-                        TraerUsuarios();
+                        TraerClientes();
                         MessageBox.Show("Registro eliminado");
                     }
                     else
@@ -176,6 +169,8 @@ namespace Vista
                 MessageBox.Show("Debe seleccionar un registro");
             }
         }
+
+       
     }
 
 
